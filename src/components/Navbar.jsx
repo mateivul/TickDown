@@ -1,4 +1,4 @@
-import { Link } from "react-reouter-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
@@ -10,11 +10,11 @@ export default function Navbar() {
                 borderBottom: "1px solid var(--border)",
             }}
         >
-            <link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none" }}>
                 <span className="font-bold text-lg" style={{ fontFamily: "Space Grotesk", color: "var(--accent)" }}>
                     TickDown
                 </span>
-            </link>
+            </Link>
         </nav>
     );
 }
