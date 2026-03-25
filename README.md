@@ -1,16 +1,27 @@
-# React + Vite
+# TickDown
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A countdown timer with a flip clock, cool particles and shareable links. Select your preset (or make your own), set a date and time, and share it with anyone (no account needed).
 
-Currently, two official plugins are available:
+## What it does / More info
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Flip clock** for animated digits
+- **Presets** like vacation, exam or others, each with suggested stats and colors
+- **Stats** for more detailed breakdowns like weekends remaining, meals, sleeps and others
+- **Notification** only in browser and if the page is open
+- **Focus mode** for a fullscreen countdown; if you want to put it on a second monitor
+- **Saved countdowns and history**, at the top are live countdowns and at the end of the page are old countdowns
+- **Completion chime** that plays a short three note audio when timer ends
+- **Shareable links** with the full config data hashed in the URL
 
-## React Compiler
+## Other
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Made with React + Vite and tailwind css, react router dom and canvas-confetti.
 
-## Expanding the ESLint configuration
+Everything is client-side so no backend and no database.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### To run locally after cloning
+
+```
+npm install
+npm run dev
+```
