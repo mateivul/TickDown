@@ -5,7 +5,6 @@ import { encodeCountdown } from "../lib/encode";
 import { saveCountdown, updateCountdown, getSavedCountdowns, deleteCountdown } from "../lib/storage";
 import PresetPicker from "../components/PresetPicker";
 import StatsPicker from "../components/StatsPicker";
-import SvaedCountdowns from "../components/SavedCountdowns";
 import SavedCountdowns from "../components/SavedCountdowns";
 
 function nextMonth() {
@@ -44,7 +43,7 @@ export default function Create() {
         .sort((a, b) => new Date(b.config.targetDate) - new Date(a.config.targetDate));
     const past = indexed
         .filter(({ config }) => new Date(config.targetDate) <= now)
-        .sort((a, b) => new Date(b.config.targetDate) - new Date(a.config.targetDate));
+        .sort((a, b) => new Date(a.config.targetDate) - new Date(b.config.targetDate));
     const visibleActive = showAllActive ? active : active.slice(0, 8);
 
     useEffect(() => {
@@ -63,7 +62,7 @@ export default function Create() {
     function onSubmit(e) {
         e.preventDefault();
         const config = {
-            title: title || presets[prest].name,
+            title: title || presets[preset].name,
             targetDate: `${date}T${time}`,
             createdAt: editingIdx !== null ? saved[editingIdx].createdAt : new Date().toISOString(),
             accent,
@@ -80,7 +79,7 @@ export default function Create() {
 
     function onDelete(i) {
         deleteCountdown(i);
-        getSaved(getSavedCountdowns());
+        setSaved(getSavedCountdowns());
     }
 
     function onEdit(config, idx) {
@@ -150,13 +149,13 @@ export default function Create() {
                         />
                         <div className="flex gap-3">
                             <div className="flex-1">
-                                <label className="text-xs mb-1.5 block" style={{ color: "var(--text-dim" }}>
+                                <label className="text-xs mb-1.5 block" style={{ color: "var(--text-dim)" }}>
                                     Date
                                 </label>
                                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
                             </div>
                             <div style={{ width: "7rem" }}>
-                                <label className="text-xs mb-1.5 block" style={{ color: "var(--test-dim)" }}>
+                                <label className="text-xs mb-1.5 block" style={{ color: "var(--text-dim)" }}>
                                     Time
                                 </label>
                                 <input type="time" value={time} onChange={(e) => setTime(e.target.value)} />
@@ -178,7 +177,7 @@ export default function Create() {
                     <div className="flex items-center gap-2">
                         <input
                             type="color"
-                            valur={accent}
+                            value={accent}
                             onChange={(e) => setAccent(e.target.value)}
                             style={{
                                 width: "2rem",
@@ -190,7 +189,7 @@ export default function Create() {
                                 borderRadius: "50%",
                             }}
                         />
-                        <span className="text-xs" style={{ color: "var(--text-dim" }}>
+                        <span className="text-xs" style={{ color: "var(--text-dim)" }}>
                             color
                         </span>
                     </div>
@@ -202,7 +201,7 @@ export default function Create() {
                         <StatsPicker selected={stats} onChange={setStats} />
                     </div>
 
-                    <div className="flex gap2 mt-2">
+                    <div className="flex gap-2 mt-2">
                         {editingIdx !== null && (
                             <button
                                 type="button"
@@ -220,7 +219,7 @@ export default function Create() {
                         )}
                         <button
                             type="submit"
-                            className="flex-1 py-3 reounded-xl font-semibold text-base"
+                            className="flex-1 py-3 rounded-xl font-semibold text-base"
                             style={{ background: accent, color: "#050508", border: "none", cursor: "pointer" }}
                         >
                             {editingIdx !== null ? "Save" : "Create countdown"}

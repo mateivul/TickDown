@@ -22,7 +22,7 @@ export function updateCountdown(index, config) {
     localStorage.setItem(KEY, JSON.stringify(saved));
 }
 
-export function deletCountdown(index) {
+export function deleteCountdown(index) {
     const saved = getSavedCountdowns();
     saved.splice(index, 1);
     localStorage.setItem(KEY, JSON.stringify(saved));
