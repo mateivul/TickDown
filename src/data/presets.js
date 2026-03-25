@@ -3,19 +3,19 @@ export const presets = {
         name: "Vacation",
         suggestedStats: ["schoolDays", "weekends", "weeks", "hours", "funSleep"],
         defaultMessage: "Vacation!!!!",
-        defaultAccent: "#ff6b35",
+        defaultAccent: "#ffee05",
     },
     exam: {
         name: "Exam",
         suggestedStats: ["schoolDays", "weekends", "hours", "minutes", "workdayBar"],
         defaultMessage: "Good luck!!",
-        defaultAccent: "#b0229f",
+        defaultAccent: "#ed2d2d",
     },
     birthday: {
         name: "Birthday",
         suggestedStats: ["weeks", "hours", "minutes", "funSleep", "funMeals"],
         defaultMessage: "Happy Birthday!",
-        defaultAccent: "#e040fb",
+        defaultAccent: "#de56f0",
     },
     newYear: {
         name: "New Year",

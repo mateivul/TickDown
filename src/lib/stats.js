@@ -54,7 +54,7 @@ export const availableStats = {
     funSleep: {
         label: "Nights of sleep",
         calculate: (now, target) => Math.floor(ms(now, target) / 86400000),
-        foramt: (val) => val.toLocaleString(),
+        format: (val) => val.toLocaleString(),
     },
     funMeals: {
         label: "Meals remaining",

@@ -52,7 +52,7 @@ export default function SubStats({ statIds, target, accent, now }) {
     return (
         <div className="w-full max-w-3xl mx-auto mt-6">
             {regular.length > 0 && (
-                <div className="grid grid-cols-2 sm:grid-cols3 md:grid-cols-4 gap-2 mb-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mb-2">
                     {regular.map((id) => {
                         const stat = availableStats[id];
                         return (

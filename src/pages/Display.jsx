@@ -28,7 +28,7 @@ export default function Display() {
         setNotifyEnabledState(val);
     }
 
-    const notifySupported = typeof winow !== "undefined" && "Notification" in window;
+    const notifySupported = typeof window !== "undefined" && "Notification" in window;
     const [notifyPermission, setNotifyPermission] = useState(notifySupported ? Notification.permission : "denied");
     const notifyDenied = notifyPermission === "denied";
 
@@ -93,9 +93,11 @@ export default function Display() {
         [523, 659, 784].forEach((freq, i) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
+            osc.connect(gain);
+            osc.connect(ctx.destination);
             osc.frequency.value = freq;
             osc.type = "sine";
-            const t = ctx.currentTime * i * 0.18;
+            const t = ctx.currentTime + i * 0.18;
             gain.gain.setValueAtTime(0, t);
             gain.gain.linearRampToValueAtTime(0.25, t + 0.05);
             gain.gain.exponentialRampToValueAtTime(0.001, t + 0.9);
@@ -165,7 +167,7 @@ export default function Display() {
                         <h1 className="text-4xl md:text-6xl font-bold" style={{ color: accent }}>
                             {config.message || "It's done!!!"}
                         </h1>
-                        <p className="text-xl" style={{ color: "var(--text-dim" }}>
+                        <p className="text-xl" style={{ color: "var(--text-dim)" }}>
                             the countdown is done
                         </p>
                     </div>
@@ -178,16 +180,16 @@ export default function Display() {
                         <div
                             className="p-6 md:p-10 rounded-2xl"
                             style={{
-                                background: "rgba(15,18,25,0.75",
+                                background: "rgba(15,18,25,0.75)",
                                 border: `1px solid ${accent}20`,
                                 backdropFilter: "blur(12px)",
                             }}
                         >
-                            <Flipcounter
+                            <FlipCounter
                                 days={timeLeft.days}
                                 hours={timeLeft.hours}
                                 minutes={timeLeft.minutes}
-                                secons={timeLeft.seconds}
+                                seconds={timeLeft.seconds}
                                 accent={accent}
                             />
                         </div>
@@ -209,7 +211,7 @@ export default function Display() {
                                                     width: `${pct}%`,
                                                     height: "100%",
                                                     background: accent,
-                                                    transtion: "width 1s linear",
+                                                    transition: "width 1s linear",
                                                 }}
                                             />
                                         </div>
@@ -238,7 +240,7 @@ export default function Display() {
                                 cursor: "pointer",
                             }}
                         >
-                            My countdowns
+                            ← My countdowns
                         </button>
                         <button
                             onClick={onCopy}
@@ -285,7 +287,7 @@ export default function Display() {
                         <button
                             onClick={() => navigate("/")}
                             className="px-4 py-2 text-sm font-semibold rounded-lg"
-                            style={{ bakground: accent, border: "none", color: "#050508", cursor: "pointer" }}
+                            style={{ background: accent, border: "none", color: "#050508", cursor: "pointer" }}
                         >
                             Create your own
                         </button>

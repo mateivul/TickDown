@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { encodeCountdown } from "../lib/encode";
 
-// items as (config and idx) where idk is the og index in storage
+// items as (config and idx) where idx is the og index in storage
 export default function SavedCountdowns({ items, onDelete, onEdit }) {
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export default function SavedCountdowns({ items, onDelete, onEdit }) {
                         className="flex items-center justify-between px-3 py-2.5 rounded-lg"
                         style={{ border: "1px solid var(--border)", background: "var(--bg-card)" }}
                     >
-                        <div className="felx-1 min-w-0">
+                        <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium truncate">{config.title}</p>
                             <p className="text-xs mt-0.5" style={{ color: "var(--text-dim)" }}>
                                 {daysLeft !== null
@@ -62,7 +62,7 @@ export default function SavedCountdowns({ items, onDelete, onEdit }) {
                                     cursor: "pointer",
                                 }}
                                 onMouseEnter={(e) => (e.currentTarget.style.color = "#f87171")}
-                                onMouseLeave={(e) => (e.currentTarget.Target.style.color = "var(--text-muted)")}
+                                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
                             >
                                 x
                             </button>

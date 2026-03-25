@@ -11,7 +11,7 @@ export default function ParticleBackground({ color }) {
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
-        const dpr = window.devicePixelRation || 1;
+        const dpr = window.devicePixelRatio || 1;
 
         const particles = [];
         for (let i = 0; i < 60; i++) {

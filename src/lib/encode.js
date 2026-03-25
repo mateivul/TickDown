@@ -20,6 +20,6 @@ export function decodeCountdown(hash) {
         accent: params.get("c") || "#00e87a",
         message: params.get("msg") || "",
         stats: params.get("stats") ? params.get("stats").split(",") : [],
-        preset: params.get("prest") || "custom",
+        preset: params.get("preset") || "custom",
     };
 }
