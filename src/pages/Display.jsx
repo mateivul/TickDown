@@ -94,7 +94,7 @@ export default function Display() {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             osc.connect(gain);
-            osc.connect(ctx.destination);
+            gain.connect(ctx.destination);
             osc.frequency.value = freq;
             osc.type = "sine";
             const t = ctx.currentTime + i * 0.18;

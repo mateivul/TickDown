@@ -40,7 +40,7 @@ export default function Create() {
     const indexed = saved.map((config, idx) => ({ config, idx }));
     const active = indexed
         .filter(({ config }) => new Date(config.targetDate) > now)
-        .sort((a, b) => new Date(b.config.targetDate) - new Date(a.config.targetDate));
+        .sort((a, b) => new Date(a.config.targetDate) - new Date(b.config.targetDate));
     const past = indexed
         .filter(({ config }) => new Date(config.targetDate) <= now)
         .sort((a, b) => new Date(a.config.targetDate) - new Date(b.config.targetDate));
@@ -154,7 +154,7 @@ export default function Create() {
                                 </label>
                                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
                             </div>
-                            <div style={{ width: "7rem" }}>
+                            <div style={{ width: "8rem" }}>
                                 <label className="text-xs mb-1.5 block" style={{ color: "var(--text-dim)" }}>
                                     Time
                                 </label>
