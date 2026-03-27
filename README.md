@@ -1,27 +1,28 @@
 # TickDown
 
-A countdown timer with a flip clock, cool particles and shareable links. Select your preset (or make your own), set a date and time, and share it with anyone (no account needed).
+A simple countdown timer I made to learn to make simple animations with js and css and also learn to encode data in a url. I added some other stuff that i thought would be useful to have.
 
-## What it does / More info
+## Features
 
-- **Flip clock** for animated digits
-- **Presets** like vacation, exam or others, each with suggested stats and colors
-- **Stats** for more detailed breakdowns like weekends remaining, meals, sleeps and others
-- **Notification** only in browser and if the page is open
-- **Focus mode** for a fullscreen countdown; if you want to put it on a second monitor
-- **Saved countdowns and history**, at the top are live countdowns and at the end of the page are old countdowns
-- **Completion chime** that plays a short three note audio when timer ends
-- **Shareable links** with the full config data hashed in the URL
+- Countdown with animated digits
+- Presets you can choose (exam, vacation)
+- Basic statistics for the countdown period
+- History for current and old countdowns
+- Confetti and chime when finished
+- Also shereable without an account
 
-## Other
+## More info
 
-Made with React + Vite and tailwind css, react router dom and canvas-confetti.
+Used these to make it: React + Vite and tailwind css, react router dom and canvas-confetti.
 
-Everything is client-side so no backend and no database.
+All data necessary is hashed in the URL, that makes the countdows shareable without an account and no backend.
 
-### To run locally after cloning
+### If you want to run locally
 
 ```
+gh repo clone mateivul/TickDown
+
+then in the TickDown folder:
 npm install
 npm run dev
 ```
